@@ -54,11 +54,11 @@ class MandangoServiceProvider extends ServiceProvider {
 	private function registerCommand()
 	{
 		$this->app->bindShared('mandango::command.flush', function(){
-			return new FlushCommand();
+			return new \Fut\Mandango\FlushCommand();
 		});
 
 		$this->app->bindShared('mandango::command.install', function(){
-			return new InstallCommand();
+			return new \Fut\Mandango\InstallCommand();
 		});
 
 		$this->commands('mandango::command.flush', 'mandango::command.install');

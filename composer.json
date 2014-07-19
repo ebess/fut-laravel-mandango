@@ -1,0 +1,26 @@
+{
+    "name": "fut/laravel-mandango",
+    "description": "",
+    "authors": [
+        {
+            "name": "Eduard Bess",
+            "email": "eduard.bess@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/support": "4.2.*",
+        "mandango/mandango": "1.0.*@dev"
+    },
+    "autoload": {
+        "classmap": [
+        	"src/facades",
+        	"src/commands",
+        	"src/config"
+        ],
+        "psr-0": {
+            "Fut\\Mandango\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

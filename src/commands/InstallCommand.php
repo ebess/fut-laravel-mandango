@@ -54,7 +54,7 @@ class InstallCommand extends Command {
 	 */
 	private function publishMandangoConfigs()
 	{
-		$this->call('config:publish', array('package' => 'fut/laravel-mandango'));
+		$this->call('config:publish', array('package' => 'fut/mandango'));
 
 		return $this;
 	}

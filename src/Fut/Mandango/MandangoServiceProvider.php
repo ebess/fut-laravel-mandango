@@ -20,7 +20,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('fut/mongodb');
+		$this->package('fut/mandango');
 	}
 
 	/**
@@ -174,7 +174,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function getSchema()
 	{
-		return \Config::get('mandango.schema');
+		return \Config::get('mandango::schema');
 	}
 
 	/**
@@ -184,7 +184,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function getModelDir()
 	{
-		return \Config::get('mandango.model_dir');
+		return \Config::get('mandango::model_dir');
 	}
 
 	/**
@@ -194,7 +194,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function getCacheDir()
 	{
-		return \Config::get('mandango.cache_dir');
+		return \Config::get('mandango::cache_dir');
 	}
 
 	/**
@@ -204,7 +204,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function getConnectionsConfig()
 	{
-		return \Config::get('mandango.connections');
+		return \Config::get('mandango::connections');
 	}
 
 
@@ -215,6 +215,6 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function getDefaultConnection()
 	{
-		return \Config::get('mandango.default_connection');
+		return \Config::get('mandango::default_connection');
 	}
 }

@@ -1,6 +1,6 @@
 {
     "name": "fut/mandango",
-    "description": "",
+    "description": "Mandango integration into Laravel 4.",
     "authors": [
         {
             "name": "Eduard Bess",

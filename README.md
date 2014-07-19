@@ -9,7 +9,7 @@ Add to compposer.json
 
 ```
 	"require": {
-        "fut/laravel-mandango": "dev-master"
+        "fut/mandango": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

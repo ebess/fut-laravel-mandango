@@ -58,7 +58,7 @@ class MandangoServiceProvider extends ServiceProvider {
 		});
 
 		$this->app->bindShared('mandango::command.install', function(){
-			return new FlushCommand();
+			return new InstallCommand();
 		});
 
 		$this->commands('mandango::command.flush', 'mandango::command.install');

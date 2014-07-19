@@ -22,8 +22,5 @@
             "Fut\\Mandango\\": "src/"
         }
     },
-    "scripts": {
-    	"post-package-install": "php artisan config:publish fut/laravel-mandango"
-    },
     "minimum-stability": "dev"
 }

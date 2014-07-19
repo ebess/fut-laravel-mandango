@@ -21,6 +21,8 @@ class MandangoServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('fut/mongodb');
+
+		$this->registerCommand();
 	}
 
 	/**
@@ -32,8 +34,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	{
 		$this
 			->registerMandango()
-			->registerMondator()
-			->registerCommand();
+			->registerMondator();
 	}
 
 	/**
@@ -43,7 +44,7 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('mandango.command', 'mandango.mondator');
+		return array('mandango', 'mandango.mondator', 'mandango.command');
 	}
 
 	/**
@@ -53,11 +54,11 @@ class MandangoServiceProvider extends ServiceProvider {
 	 */
 	private function registerCommand()
 	{
-		$this->app->bind('mandango.command', function(){
-			return new MandangoCommand();
+		$this->app->bind('mandango::command.flush', function(){
+			return new MandangoFlushCommand();
 		});
 
-		$this->commands('mandango.command');
+		$this->commands('mandango::command.flush');
 
 		return $this;
 	}

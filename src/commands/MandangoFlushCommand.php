@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class MandangoCommand extends Command {
+class MandangoFlushCommand extends Command {
 
 	/**
 	 * The console command name.
@@ -32,28 +32,6 @@ class MandangoCommand extends Command {
 		Mondator::process();
 
 		$this->info('Mandango classes were generated.');
-	}
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments()
-	{
-		return array(
-		);
-	}
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions()
-	{
-		return array(
-		);
 	}
 
 }

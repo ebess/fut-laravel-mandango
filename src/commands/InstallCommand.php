@@ -36,8 +36,11 @@ class InstallCommand extends Command {
 	 */
 	public function fire()
 	{
+		$this
+			->publishMandangoConfigs()
+			->createMandangoFolder();
 
-		if ($this->error === true) {
+		if ($this->error === false) {
 			$this->info('Mandango package is ready to use.');
 		} else {
 			$this->error('An error has occured.');
@@ -51,7 +54,7 @@ class InstallCommand extends Command {
 	 */
 	private function publishMandangoConfigs()
 	{
-		$this->call('config:publish', array('argument' => 'fut/laravel-mandango'));
+		$this->call('config:publish', array('package' => 'fut/laravel-mandango'));
 
 		return $this;
 	}
@@ -63,11 +66,13 @@ class InstallCommand extends Command {
 	 */
 	private function createMandangoFolder()
 	{
-		if (!mkdir(app_path() . "/mandango")) {
+		$path = app_path() . "/mandango";
+		
+		if (file_exists($path) || !mkdir($path)) {
 			$this->error = true;
-			$this->error('Failed to create the mandago folder (app/mandango).')
+			$this->error('Failed to create the mandago folder (app/mandango).');
 		} else {
-			$this->info('Mandango folder created.')
+			$this->info('Mandango folder created.');
 		}
 
 		return $this;

@@ -66,7 +66,10 @@ class InstallCommand extends Command {
 	 */
 	private function createMandangoFolder()
 	{
-		if (File::createDirectory($this->getMandangoDir()) {
+		// create folder
+		@\File::makeDirectory($this->getMandangoDir());
+
+		if (\File::isDirectory($this->getMandangoDir()) === false) {
 			$this->error = true;
 			$this->error('Failed to create the mandago folder (app/mandango).');
 		} else {

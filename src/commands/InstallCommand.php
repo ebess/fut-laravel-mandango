@@ -66,9 +66,7 @@ class InstallCommand extends Command {
 	 */
 	private function createMandangoFolder()
 	{
-		$path = app_path() . "/mandango";
-		
-		if (file_exists($path) || !mkdir($path)) {
+		if (File::createDirectory($this->getMandangoDir()) {
 			$this->error = true;
 			$this->error('Failed to create the mandago folder (app/mandango).');
 		} else {
@@ -78,4 +76,13 @@ class InstallCommand extends Command {
 		return $this;
 	}
 
+	/**
+	 * get the mandango dir
+	 * 
+	 * @return string
+	 */
+	private function getMandangoDir()
+	{
+		return \Config::get('mandango::mandango_dir');
+	}
 }

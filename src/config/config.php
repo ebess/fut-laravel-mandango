@@ -5,8 +5,9 @@ return [
 	/**
 	 * folder configs
 	 */
-	'model_dir' => app_path() . '/mandango/Model',
-	'cache_dir' => app_path() . '/mandango/Cache',
+	'mandango_dir' 	=> app_path() . '/mandango',
+	'model_dir' 	=> app_path() . '/mandango/Model',
+	'cache_dir' 	=> app_path() . '/mandango/Cache',
 
 	/**
 	 * connection credentials with name of the connection as the array key

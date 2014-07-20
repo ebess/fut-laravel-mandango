@@ -21,6 +21,8 @@ class MandangoServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('fut/mandango');
+
+		$this->autoloadDirectories();
 	}
 
 	/**
@@ -44,6 +46,18 @@ class MandangoServiceProvider extends ServiceProvider {
 	public function provides()
 	{
 		return array('mandango', 'mandango.mondator');
+	}
+
+	/**
+	 * autoload the needed directories
+	 * 
+	 * @return $this
+	 */
+	private function autoloadDirectories()
+	{
+		\ClassLoader::addDirectories($this->getMandangoDir());
+
+		return $this;
 	}
 
 	/**
@@ -175,6 +189,16 @@ class MandangoServiceProvider extends ServiceProvider {
 	private function getSchema()
 	{
 		return \Config::get('mandango::schema');
+	}
+
+	/**
+	 * get the mandango dir
+	 * 
+	 * @return string
+	 */
+	private function getMandangoDir()
+	{
+		return \Config::get('mandango::mandango_dir');
 	}
 
 	/**
